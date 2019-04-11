@@ -19,6 +19,16 @@ class Tracks extends Component {
     }
   }
 
+  trackIcon = track => {
+   if (!track.preview_url){
+      return ("");
+    }
+    if (this.state.playing && this.state.playingPreviewUrl === track.preview_url) {
+      return ("\u23F8");
+    }
+    return("\u25B6");
+  }
+
   render() {
     const { tracks } = this.props;
 
@@ -28,17 +38,15 @@ class Tracks extends Component {
         tracks.map(track => {
           const { id, name, album, preview_url } = track;
           return (
-            <div key={id} onClick={this.playAudio(preview_url)}>
+            <div  key={id}
+                  onClick={this.playAudio(preview_url)}
+                  className='track'>
               <img src={album.images[0].url}
                 alt="album"
-                style={{
-                  height: 200,
-                  width: 200,
-                  borderRadius: 100,
-                  objectFit: 'cover'
-                }}
+                className='track-image'
               />
-              <p>{name}</p>
+              <p className='track-text'>{name}</p>
+              <p className='track-icon'><span>{this.trackIcon(track)}</span></p>
             </div>
           )
         })

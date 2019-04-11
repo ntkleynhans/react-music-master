@@ -20,3 +20,39 @@ body {
 h1, h2, h3, h4, h5 {
   font-family: 'economicaBold';
 }
+
+.track {
+  height: 250px;
+  width: 250px;
+  position: relative;
+  display: inline-block;
+  margin: 20px;
+  cursor: pointer;
+}
+
+.track-image {
+  height: 250px;
+  width: 250px;
+}
+
+.track-text {
+  position: absolute;
+  width: 250px;
+  bottom: 0px;
+  background-color: black;
+  color: white;
+  padding: 5px;
+}
+
+.track-icon {
+  position: absolute;
+  left: 100px;
+  bottom: 100px;
+  background-color: black;
+  color: white;
+  height: 50px;
+  width: 50px;
+  border-radius: 25px;
+  padding: 10px;
+  opacity: 0.8;
+}

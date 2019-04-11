@@ -8,10 +8,11 @@ const API_URL = 'https://spotify-api-wrapper.appspot.com/artist';
 class App extends Component {
   state = { artist: null, tracks: [] };
 
-  searchArtist = (artistName) => {
-    fetch(`${API_URL}/${artistName}`)
+  searchArtist = artistQuery => {
+    fetch(`${API_URL}/${artistQuery}`)
     .then(response => response.json())
     .then(json => {
+      console.log(json);
       if(json.artists.total > 1) {
         this.setState({ artist : json.artists.items[0]});
         this.fetchTopTracks();
@@ -25,7 +26,7 @@ class App extends Component {
     fetch(`${API_URL}/${artistId}/top-tracks`)
     .then(response => response.json())
     .then(json => {
-      this.setState({ tracks : json.tracks})
+      this.setState({ tracks : json.tracks});
     })
     .catch(error => alert(error.message));
   }
@@ -34,7 +35,7 @@ class App extends Component {
     return(
       <div>
         <h2>Music Master</h2>
-        <Search searchArtist={this.searchArtist}/>
+        <Search searchArtist={this.searchArtist} />
         <Artist artist={this.state.artist} />
         <Tracks tracks={this.state.tracks} />
       </div>

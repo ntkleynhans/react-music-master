@@ -4,7 +4,7 @@ class Search extends Component {
   state = { artistQuery: '' }
 
   updateArtistQuery = event => {
-    this.setState({ artistQuery: event.target.value })
+    this.setState({ artistQuery: event.target.value });
   }
 
   handleKeyPress = event => {
