@@ -16,7 +16,8 @@ const Artist = ({ artist }) => {
           height: 200,
           width: 200,
           borderRadius: 100,
-          objectFit: 'cover'
+          objectFit: 'cover',
+          marginBottom: 20
         }}
       />
     </div>
